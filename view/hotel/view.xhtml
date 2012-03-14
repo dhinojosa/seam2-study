@@ -1,0 +1,19 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                template="/layout/template.xhtml">
+
+    <ui:define name="body">
+        <h:panelGrid columns="2">
+            <h:outputLabel id="cityLabel" value="City:"/>
+            <s:link id="updateHotelLink" view="/hotel/update.xhtml">
+                <h:outputText id="cityInput" value="#{loadedHotel.city}"/>
+                <f:param name="hotel.id" value="#{loadedHotel.id}"/>
+            </s:link>
+        </h:panelGrid>
+    </ui:define>
+</ui:composition>

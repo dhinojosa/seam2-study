@@ -13,3 +13,4 @@ jboss-seam-remoting.jar
 jbpm-jpdl.jar
 mvel2.jar
 richfaces-api.jar
+guava-11.0.2.jar

@@ -1,0 +1,29 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                template="/layout/template.xhtml">
+
+    <ui:define name="body">
+        <h:dataTable value="#{allHotels}" var="hotel">
+            <h:column id="hotelIDColumn">
+                <f:facet name="header">
+                    Hotel ID
+                </f:facet>
+                <h:outputText id="hotelCity" value="#{hotel.id}"/>
+            </h:column>
+            <h:column id="hotelCity">
+                <f:facet name="header">
+                    Hotel City
+                </f:facet>
+                <s:link id="updateHotelLink" view="/hotel/view.xhtml">
+                    <h:outputText id="hotelCity" value="#{hotel.city}"/>
+                    <f:param name="hotel.id" value="#{hotel.id}"/>
+                </s:link>
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+</ui:composition>

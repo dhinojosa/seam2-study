@@ -14,7 +14,26 @@
         </navigation>
     </page>
 
-    <exception class="org.jboss.seam.framework.EntityNotFoundException">
+    <page view-id="/hotel/create.xhtml">
+       <begin-conversation join="true"/>
+       <navigation from-action="#{hotelServiceBean.persist(newHotel)}">
+          <redirect view-id="/hotel/view.xhtml">
+             <param name="hotel.id" value="#{newHotel.id}"/>
+          </redirect>
+       </navigation>
+    </page>
+
+   <page view-id="/hotel/update.xhtml">
+      <begin-conversation join="true"/>
+      <navigation from-action="#{hotelServiceBean.update(loadedHotel)}">
+         <redirect view-id="/hotel/view.xhtml">
+            <param name="hotel.id" value="#{loadedHotel.id}"/>
+         </redirect>
+      </navigation>
+   </page>
+
+
+   <exception class="org.jboss.seam.framework.EntityNotFoundException">
         <redirect view-id="/error.xhtml">
             <message severity="warn">Record not found</message>
         </redirect>
